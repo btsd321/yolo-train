@@ -1,0 +1,12 @@
+{
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe",
+    "python.terminal.activateEnvironment": true,
+    // "http.proxy": "http://127.0.0.1:29758",
+    // "http.proxyStrictSSL": false,
+    // "github.copilot.advanced": {
+    //     "proxy": {
+    //     "host": "http://127.0.0.1",
+    //     "port": 29758
+    //     }
+    // }
+}
