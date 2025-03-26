@@ -172,3 +172,9 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+runs/
+
+yolo11m-seg.pt
+yolo11s-seg.pt
+yolo11x-seg.pt
