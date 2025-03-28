@@ -34,9 +34,9 @@ def main(image_dir, txt_dir, save_dir):
     mkdir(label_val_path)
 
     # 数据集划分比例，训练集85%，验证集15%，测试集0%，按需修改
-    train_percent = 0.85
+    train_percent = 0.80
     val_percent = 0.15
-    test_percent = 0  # 注意：测试集比例为0，所有数据会分配到训练集和验证集
+    test_percent = 0.05  # 注意：测试集比例为0，所有数据会分配到训练集和验证集
 
     total_txt = os.listdir(txt_dir)  # 获取所有标注文件的文件名
     num_txt = len(total_txt)  # 计算标注文件的数量
@@ -44,7 +44,7 @@ def main(image_dir, txt_dir, save_dir):
 
     num_train = int(num_txt * train_percent)  # 计算训练集的数量
     num_val = int(num_txt * val_percent)  # 计算验证集的数量
-    num_test = num_txt - num_train - num_val  # 计算测试集的数量（此处应为0）
+    num_test = int(num_txt - num_train - num_val)  # 计算测试集的数量（此处应为0）
 
     train = random.sample(list_all_txt, num_train)  # 随机选择num_train个索引作为训练集
     # 在全部数据集中取出train，剩下的就是val_test

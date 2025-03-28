@@ -1,14 +1,28 @@
-# 暂不可用只能用于水平框检测
+from ultralytics import YOLO
+from PIL import Image
+import datetime
+import random
+import torch
+import sys
+import onnx
 
-# from ultralytics.data.utils import visualize_image_annotations
 
-# label_map = {  # Define the label map with all annotated class labels.
-#     0: "target",
-# }
+# 对单张图片进行推理并可视化结果
+model = YOLO("yolo11n-seg.yaml").load("runs/pose/train/weights/best.pt")  # build from YAML and transfer weights
+results = model(["dataset/images/test/20250326_215453_BJr0dWId.jpg"])  # return a list of Results objects
 
-# # Visualize
-# visualize_image_annotations(
-#     "D:\\Project\\RobotMaster\\yolo-train\\dataset\\images\\train\\20250326_132432_3uBPlpCq.jpg",  # Input image path.
-#     "D:\\Project\\RobotMaster\\yolo-train\\dataset\\labels\\train\\20250326_132432_3uBPlpCq.txt",  # Annotation file path for the image.
-#     label_map,
-# )
+# Process results list
+for result in results:
+    boxes = result.boxes  # Boxes object for bounding box outputs
+    masks = result.masks  # Masks object for segmentation masks outputs
+    keypoints = result.keypoints  # Keypoints object for pose outputs
+    probs = result.probs  # Probs object for classification outputs
+    obb = result.obb  # Oriented boxes object for OBB outputs
+    # result.show()  # display to screen
+    result.save(filename="result.jpg")  # save to disk
+    # 打印 boxes, masks, keypoints, probs, obb 信息
+    print("boxes: ", boxes)
+    print("masks: ", masks)
+    print("keypoints: ", keypoints)
+    print("probs: ", probs)
+    print("obb: ", obb)

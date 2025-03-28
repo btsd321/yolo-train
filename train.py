@@ -8,9 +8,9 @@ import onnx
 
 if __name__ == '__main__':
     # Load a model
-    # model = YOLO("yolo11n-seg.yaml")  # build a new model from YAML
-    # model = YOLO("yolo11n-seg.pt")  # load a pretrained model (recommended for training)
-    model = YOLO("yolo11n-seg.yaml").load("yolo11n-seg.pt")  # build from YAML and transfer weights
+    # model = YOLO("yolo11n-pose.yaml")  # build a new model from YAML
+    # model = YOLO("yolo11n-pose.pt")  # load a pretrained model (recommended for training)
+    model = YOLO("yolo11n-pose.yaml").load("yolo11n-pose.pt")  # build from YAML and transfer weights
 
     print(torch.version.cuda)# 查看cuda版本
     # Train the model
@@ -18,7 +18,7 @@ if __name__ == '__main__':
         print("GPU found, count: ", torch.cuda.device_count())  # 输出可用的GPU数量
         results = model.train(
             data="custom_path.yaml", 
-            epochs=30, # 训练轮数
+            epochs=100, # 训练轮数
             imgsz=640,  # 输入图像尺寸
             device=0,   # 使用第0块GPU进行训练
         )
@@ -34,7 +34,7 @@ if __name__ == '__main__':
         )
         
     # 对单张图片进行推理并可视化结果
-    results = model(["D:\\Project\\RobotMaster\\yolo-train\\dataset\\images\\test\\20250326_132435_7GKAFKiu.jpg"])  # return a list of Results objects
+    results = model(["dataset/images/test/20250326_215453_7D43hmCl.jpg"])  # return a list of Results objects
 
     # Process results list
     for result in results:
