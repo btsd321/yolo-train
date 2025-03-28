@@ -187,3 +187,6 @@ train.cache
 val.cache
 
 origin_data/
+images/
+labels/
+dataset/
