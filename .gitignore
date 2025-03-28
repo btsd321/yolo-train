@@ -178,3 +178,12 @@ runs/
 yolo11m-seg.pt
 yolo11s-seg.pt
 yolo11x-seg.pt
+yolo11m-pose.pt
+yolo11s-pose.pt
+yolo11x-pose.pt
+yolo11l-pose.pt
+
+train.cache
+val.cache
+
+origin_data/
