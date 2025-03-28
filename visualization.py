@@ -8,8 +8,8 @@ import onnx
 
 
 # 对单张图片进行推理并可视化结果
-model = YOLO("yolo11n-seg.yaml").load("runs/pose/train/weights/best.pt")  # build from YAML and transfer weights
-results = model(["dataset/images/test/20250326_215453_BJr0dWId.jpg"])  # return a list of Results objects
+model = YOLO("runs/pose/train/weights/best.pt")  # build from YAML and transfer weights
+results = model(["dataset/images/test/20250327_175217_rMC5cmNa.jpg"])  # return a list of Results objects
 
 # Process results list
 for result in results:

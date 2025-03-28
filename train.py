@@ -34,7 +34,7 @@ if __name__ == '__main__':
         )
         
     # 对单张图片进行推理并可视化结果
-    results = model(["dataset/images/test/20250326_215453_7D43hmCl.jpg"])  # return a list of Results objects
+    results = model(["dataset/images/test/20250326_215453_dk1CVMJg.jpg"])  # return a list of Results objects
 
     # Process results list
     for result in results:

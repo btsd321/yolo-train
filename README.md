@@ -18,3 +18,8 @@ Box(P): 边界框的精确率（Precision）。
 Box(R): 边界框的召回率（Recall）。
 mAP50: 交并比大于0.5时的平均精度（Mean Average Precision at IoU > 0.5）。
 mAP50-95: 交并比在0.5到0.95之间时的平均精度（Mean Average Precision at IoU > 0.5 to 0.95）。
+
+pip freeze > requirements.txt # 生成依赖包列表
+pip install -r requirements.txt # 安装依赖包
+
+# 本项目需要cuda_12.6.3_561.17_windows环境和cudnn8.9.7.29环境，请确保安装正确的环境。
